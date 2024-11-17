@@ -30,7 +30,7 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
     formData.append("image", file);
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/remove-bg", {
+        const response = await fetch("https://captaindks.pythonanywhere.com/remove-bg", {
             method: "POST",
             body: formData,
         });
