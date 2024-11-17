@@ -34,9 +34,15 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
             method: "POST",
             body: formData,
              credentials: 'same-origin'
-        });
-
+                    headers: {
+            'Accept': 'image/*'
+        } });
+ console.log("Response status:", response.status);
+    console.log("Response headers:", response.headers);
         if (response.ok) {
+              const errorText = await response.text();
+        console.error("Server response:", errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
             const blob = await response.blob();
             const downloadUrl = URL.createObjectURL(blob);
             const link = document.createElement("a");
@@ -54,7 +60,7 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
             throw new Error("Failed to process image.");
         }
     } catch (error) {
-        console.error("Error during fetch:", error);
-        alert("Something went wrong. Please try again.");
+        console.error("Detailed error:", error);
+    alert("Error: " + error.message);
     }
 });
