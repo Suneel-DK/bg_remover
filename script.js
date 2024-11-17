@@ -33,6 +33,7 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
         const response = await fetch("https://captaindks.pythonanywhere.com/remove-bg", {
             method: "POST",
             body: formData,
+             credentials: 'same-origin'
         });
 
         if (response.ok) {
