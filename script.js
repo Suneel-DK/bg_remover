@@ -42,6 +42,12 @@ document.getElementById("uploadForm").addEventListener("submit", async (e) => {
         if (response.ok) {
             const blob = await response.blob();
             const downloadUrl = URL.createObjectURL(blob);
+
+             // Set the image source and show it
+            outputImage.onload = () => {
+                outputImage.style.display = "block";
+            };
+            outputImage.src = imageUrl;
             
             // Display the output image first
             outputImage.src = downloadUrl;
