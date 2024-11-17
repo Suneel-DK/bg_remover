@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Remover</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Remove Background</h1>
+        <form id="uploadForm">
+            <label for="fileInput" class="label-file">Choose an Image</label>
+            <input type="file" id="fileInput" accept="image/*" />
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Preview of Input Image -->
+        <div>
+            <h2>Input Image</h2>
+            <img id="previewImage" style="display:none;" />
+        </div>
+
+        <!-- Output Image (After Background Removal) -->
+        <div>
+            <h2>Output Image</h2>
+            <img id="outputImage" style="display:none;" />
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
